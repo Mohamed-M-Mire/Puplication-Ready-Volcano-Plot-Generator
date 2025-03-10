@@ -45,12 +45,11 @@ generate_volcano_plot(
 
 ## Dependencies
 
+- text_annotate
+- matplotlib
 - pandas
 - numpy
-- matplotlib
-- seaborn
-- text_annotate
-- 
+  
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for more details.
