@@ -27,7 +27,15 @@ The `generate_volcano_plot` function generates a volcano plot based on input tra
 import pandas as pd
 
 # Assuming DEA_res_noDubs is a DataFrame containing the necessary data
-generate_volcano_plot(DEA_res_noDubs, lfcutoff=1.5, fdrcutoff=0.05, figureTitle="Differential Expression Volcano Plot", savefig_Path="./figures/volcano_plot.png", maxGeneNameLen=8)
+generate_volcano_plot(
+    DEA_res_noDubs, 
+    lfcutoff= 1.5, 
+    fdrcutoff= 0.05,
+    maxGeneNameLen= 8, 
+    figureTitle= "Differential Expression Volcano Plot", 
+    savefig_Path= "./figures/volcano_plot.png"
+    )
+```
 
 ### Notes
 
