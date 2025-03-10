@@ -49,6 +49,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Acknowledgments
 
-Special thanks to the contributors of the libraries used in this project.
-
 Inspired by the R library EnhancedVolcano.
