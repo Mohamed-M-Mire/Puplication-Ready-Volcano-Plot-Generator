@@ -36,7 +36,7 @@ generate_volcano_plot(
     savefig_Path= "./figures/volcano_plot.png"
     )
 ```
-
+https://github.com/Mohamed-M-Mire/Puplication-Ready-Volcano-Plot-Generator/blob/main/Figures/volcano_plot.png
 ### Notes
 
 - The volcano plot visualizes the relationship between fold change (logFC) and statistical significance (FDR).
