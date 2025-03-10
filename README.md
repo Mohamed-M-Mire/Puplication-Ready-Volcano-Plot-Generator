@@ -24,7 +24,10 @@ The `generate_volcano_plot` function generates a volcano plot based on input tra
 ### Example Usage
 
 ```python
+import matplotlib.pyplot as plt
+import textalloc as ta
 import pandas as pd
+import numpy as np
 
 # Assuming DEA_res_noDubs is a DataFrame containing the necessary data
 generate_volcano_plot(
