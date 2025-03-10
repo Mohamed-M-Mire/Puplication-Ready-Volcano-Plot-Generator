@@ -28,3 +28,27 @@ import pandas as pd
 
 # Assuming DEA_res_noDubs is a DataFrame containing the necessary data
 generate_volcano_plot(DEA_res_noDubs, lfcutoff=1.5, fdrcutoff=0.05, figureTitle="Differential Expression Volcano Plot", savefig_Path="./figures/volcano_plot.png", maxGeneNameLen=8)
+
+### Notes
+
+- The volcano plot visualizes the relationship between fold change (logFC) and statistical significance (FDR).
+- Significant genes are highlighted based on the specified cutoffs.
+- The color mapping function assigns gene names to categories: "Not Sig.", "Log2 FC", "FDR", or "Log2 FC & FDR".
+
+## Dependencies
+
+- pandas
+- numpy
+- matplotlib
+- seaborn
+- text_annotate
+- 
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## Acknowledgments
+
+Special thanks to the contributors of the libraries used in this project.
+
+Inspired by the R library EnhancedVolcano.
