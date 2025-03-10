@@ -45,7 +45,7 @@ generate_volcano_plot(DEA_res_noDubs, lfcutoff=1.5, fdrcutoff=0.05, figureTitle=
 - 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+This project is licensed under the MIT License. See the LICENSE file for more details.
 
 ## Acknowledgments
 
