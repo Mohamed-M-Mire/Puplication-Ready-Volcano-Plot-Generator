@@ -17,7 +17,7 @@ def generate_volcano_plot(
 
     Parameters:
         DEA_res_noDubs (pd.DataFrame): DataFrame containing differential expression analysis results.
-            -Data must include 'logFC' and 'adj.P.Val' columns.
+            -Data must include 'logFC' and 'adj.P.Val' columns and indexed by 'GeneNames' column
         lfcutoff (float): Log fold change cutoff value.
         fdrcutoff (float): False discovery rate cutoff value.
         figureTitle (str): Title for the generated plot.
