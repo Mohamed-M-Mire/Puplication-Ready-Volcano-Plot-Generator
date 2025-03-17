@@ -14,7 +14,7 @@ The `generate_volcano_plot` function generates a volcano plot based on input tra
 - `lfcutoff` (float): Log fold change cutoff value.
 - `fdrcutoff` (float): False discovery rate cutoff value.
 - `figureTitle` (str): Title for the generated plot.
-- `topGeneCount` (int, optional): Number of top most significantly changed genes to subset the data by. Default is 15.
+- `topGeneCount` (int, optional): Number of top most significantly changed genes to subset the data by. Defaults to 15.
 - `maxGeneNameLen` (int, optional): Maximum length of gene names to display. Defaults to 8.
 - `savefig_Path` (str, optional): File path to save the plot. Defaults to None.
 
