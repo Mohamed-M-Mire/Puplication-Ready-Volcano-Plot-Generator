@@ -43,12 +43,6 @@ generate_volcano_plot(
 ```
 ![alt text](https://github.com/Mohamed-M-Mire/Puplication-Ready-Volcano-Plot-Generator/blob/main/Figures/volcano_plot.png)
 
-### Notes
-
-- The volcano plot visualizes the relationship between fold change (logFC) and statistical significance (FDR).
-- Significant genes are highlighted based on the specified cutoffs.
-- The color mapping function assigns gene names to categories: "Not Sig.", "Log2 FC", "FDR", or "Log2 FC & FDR".
-
 ## Dependencies
 
 - text_annotate
