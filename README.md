@@ -1,7 +1,5 @@
 # Puplication-Ready Volcano Plot Generator
 
-This repository contains a function to generate volcano plots based on differential expression analysis (DEA) results. Volcano plots are useful for visualizing the relationship between fold change and statistical significance in gene expression studies.
-
 ## Function: `generate_volcano_plot`
 
 ### Description
