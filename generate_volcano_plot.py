@@ -4,23 +4,39 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import text_annotate as ta
 
-def generate_volcano_plot(DEA_res_noDubs: pd.DataFrame, lfcutoff: float, fdrcutoff: float, figureTitle: str, savefig_Path: str = None, maxGeneNameLen: int = 20):
+def generate_volcano_plot(
+    DEA_res_noDubs: pd.DataFrame, 
+    lfcutoff: float, 
+    fdrcutoff: float, 
+    figureTitle: str, 
+    topGeneCount: int = 15, 
+    maxGeneNameLen: int = 8,
+    savefig_Path: str = None):
     """
     Generate a volcano plot based on input data and thresholds.
 
     Parameters:
-    DEA_res_noDubs (pd.DataFrame): DataFrame containing differential expression analysis results.
-    lfcutoff (float): Log fold change cutoff value.
-    fdrcutoff (float): False discovery rate cutoff value.
-    figureTitle (str): Title for the generated plot.
-    savefig_Path (str, optional): File path to save the plot. Defaults to None.
-    maxGeneNameLen (int, optional): Maximum length of gene names to display. Defaults to 20.
+        DEA_res_noDubs (pd.DataFrame): DataFrame containing differential expression analysis results.
+            -Data must include 'logFC' and 'adj.P.Val' columns.
+        lfcutoff (float): Log fold change cutoff value.
+        fdrcutoff (float): False discovery rate cutoff value.
+        figureTitle (str): Title for the generated plot.
+        savefig_Path (str, optional): File path to save the plot. Defaults to None.
+        topGeneCount (int, optional): The number of top most significantly changed genes to subset the data by. Default is 15.
+        maxGeneNameLen (int, optional): Maximum length of gene names to display. Defaults to 8.
 
     Returns:
-    None
+        matplotlib figure object 
 
     Example usage:
-    generate_volcano_plot(DEA_res_noDubs, lfcutoff=1.5, fdrcutoff=0.05, figureTitle="Differential Expression Volcano Plot", savefig_Path="./figures/volcano_plot.png", maxGeneNameLen=8)
+        generate_volcano_plot(
+            DEA_res_noDubs, 
+            lfcutoff=1.5, 
+            fdrcutoff=0.05, 
+            figureTitle="Differential Expression Volcano Plot", 
+            topGeneCount=10, 
+            maxGeneNameLen=8, 
+            savefig_Path="./figures/volcano_plot.png")
     """
     
     # Process the input data to include necessary columns
@@ -40,15 +56,21 @@ def generate_volcano_plot(DEA_res_noDubs: pd.DataFrame, lfcutoff: float, fdrcuto
         return 'Not Sig.'
 
     DEA_res_sig["color"] = DEA_res_sig.apply(categorize_genes, axis=1)
-
+     
     # Highlight top genes
     top_genes = DEA_res_sig[DEA_res_sig["color"] == 'Log2 FC & FDR']
     top_genes = top_genes[top_genes.index.str.len() < maxGeneNameLen]
-    top_genes = top_genes.sort_values(by="logFC", ascending=False).head(10).append(
-                top_genes.sort_values(by="logFC", ascending=True).head(10))
+
+    # Sort once and split into top and bottom halves
+    top_genes_sorted = top_genes.sort_values(by="logFC", ascending=False)
+
+    top_genes = pd.concat([
+        top_genes_sorted.head(topGeneCount),  # Top topGeneCount
+        top_genes_sorted.tail(topGeneCount)   # Bottom topGeneCount (ascending order)
+    ])
     
     # Plotting
-    plt.figure(figsize=(9, 6))
+    fig = plt.figure(figsize=(9, 6))
     sns.set_style("whitegrid")
     ax = sns.scatterplot(data=DEA_res_sig, x="logFC", y="nlog10", hue="color", hue_order=["Not Sig.", "Log2 FC", "FDR", "Log2 FC & FDR"], palette=["gray", "green", "blue", "red"], s=45, alpha=0.5, edgecolor="none")
     
@@ -79,5 +101,8 @@ def generate_volcano_plot(DEA_res_noDubs: pd.DataFrame, lfcutoff: float, fdrcuto
     # Save the figure
     if savefig_Path:
         plt.savefig(savefig_Path, dpi=600, bbox_inches="tight", facecolor='w')
+        
     plt.show()
     plt.clf()
+    
+    return fig 
