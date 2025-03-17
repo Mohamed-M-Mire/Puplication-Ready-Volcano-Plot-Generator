@@ -1,5 +1,7 @@
 # Puplication-Ready Volcano Plot Generator
 
+A Python tool for generating publication-ready volcano plots.
+
 ## Function: `generate_volcano_plot`
 
 ### Description
