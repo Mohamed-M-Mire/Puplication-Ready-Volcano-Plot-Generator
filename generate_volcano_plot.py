@@ -13,7 +13,7 @@ def generate_volcano_plot(
     maxGeneNameLen: int = 8,
     savefig_Path: str = None):
     """
-    Generate a volcano plot based on input data and thresholds.
+    Generate a volcano plot based on input transcriptomics data and specified thresholds. Highlight significant genes based on log fold change (logFC) and false discovery rate (FDR) cutoffs.
 
     Parameters:
         DEA_res_noDubs (pd.DataFrame): DataFrame containing differential expression analysis results.
