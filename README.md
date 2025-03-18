@@ -45,7 +45,7 @@ generate_volcano_plot(
 
 ## Dependencies
 
-- text_annotate
+- textalloc
 - matplotlib
 - pandas
 - numpy
