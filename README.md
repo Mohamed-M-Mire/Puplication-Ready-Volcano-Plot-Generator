@@ -45,8 +45,8 @@ generate_volcano_plot(
 
 ## Dependencies
 
-- textalloc
 - matplotlib
+- textalloc
 - pandas
 - numpy
   
