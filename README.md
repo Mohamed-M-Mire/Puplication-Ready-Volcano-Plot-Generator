@@ -31,7 +31,7 @@ import textalloc as ta
 import pandas as pd
 import numpy as np
 
-# Assuming DEA_res_noDubs is a DataFrame containing the necessary data
+# Assuming DEA_res_noDubs is a DataFrame containing the necessary data...the Data folder has an example input data file
 generate_volcano_plot(
     DEA_res_noDubs, 
     lfcutoff=1.5, 
