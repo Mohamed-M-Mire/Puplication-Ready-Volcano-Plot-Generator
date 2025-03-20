@@ -1,8 +1,9 @@
+import matplotlib.pyplot as plt
+import textalloc as ta
+import seaborn as sns
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-import text_annotate as ta
+
 
 def generate_volcano_plot(
     DEA_res_noDubs: pd.DataFrame, 
